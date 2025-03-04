@@ -1,18 +1,13 @@
-﻿
-using EasyCashIdentityProject.DtoLayer.Dtos.AppUserDtos;
+﻿using EasyCashIdentityProject.DtoLayer.Dtos.AppUserDtos;
 using EasyCashIdentityProject.DtoLayer.Dtos.AppUserDtos.AppUserDtos;
 using EasyCashIdentityProject.EntityLayer.Concrete;
-
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
-using System.Net.Mail;
-using MailKit.Net.Smtp;
-using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 
-namespace EasyCashIdentityProject.PresantationLayer.Controllers
+namespace EasyCashIdentityProject.PresentationLayer.Controllers
 {
-
 	public class RegisterController : Controller
 	{
 		private readonly UserManager<AppUser> _userManager;
@@ -62,16 +57,15 @@ namespace EasyCashIdentityProject.PresantationLayer.Controllers
 
 					mimeMessage.Subject = "Easy Cash Onay Kodu";
 
-					SmtpClient client = new SmtpClient();
-					client.Connect("smtp.gmail.com", 587, false);
-					client.Authenticate("projekursapi@gmail.com", "btfcoirevejxphfr");
-                    //client.Authenticate("projekursapi@gmail.com", "UYGULAMA_ŞİFRENİZ"); hata alıyorsak bunu kullan
-                    client.Send(mimeMessage);
-					client.Disconnect(true);
+				//	smtpclient client = new smtpclient();
+				//	client.connect("smtp.gmail.com", 587, false);
+				//client.authenticate("projekursapi@gmail.com", "btfcoirevejxphfr");
+				//	client.send(mimemessage);
+				//	client.disconnect(true);
 
 					TempData["Mail"] = appUserRegisterDto.Email;
 
-					return RedirectToAction("Index", "ConfirmMail");
+					return RedirectToAction("Index", "ConfirmMail"); //register olduktan sonra doğrulama kodu için gidilecek sayfa
 				}
 				else
 				{
@@ -85,3 +79,4 @@ namespace EasyCashIdentityProject.PresantationLayer.Controllers
 		}
 	}
 }
+//demoprojelerkurs@gmail.com
