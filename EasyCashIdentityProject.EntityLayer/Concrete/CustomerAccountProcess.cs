@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         public int? ReceiverID { get; set; }
         public CustomerAccount SenderCustomer { get; set; }
         public CustomerAccount ReceiverCustomer { get; set; }
-   
-     
+        public string Description { get; set; }
+
     }
 }

@@ -86,3 +86,18 @@ div[data-role="editor-toolbar"] {
 .fs-Five {
 	font-size: x-large;
 }
+.tile-stats .icon {
+	display: flex;
+	align-items: center; /* Ýkon ve metni dikeyde ortalar */
+	font-size: 24px; /* Ýkon boyutunu ayarlayýn */
+}
+
+	.tile-stats .icon i {
+		margin-right: 10px; /* Ýkon ve sayýnýn arasýndaki boþluk */
+	}
+
+.tile-stats .count {
+	font-size: 24px; /* Sayý boyutunu ayarlayýn */
+	font-weight: bold;
+	color: #333;
+}
